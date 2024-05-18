@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $student_id = $_POST['student_id'];
-    $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
     foreach ($days as $day) {
         for ($period = 1; $period <= 7; $period++) {
@@ -52,7 +52,7 @@ $students_result = $conn->query($students_sql);
         </select><br><br>
         
         <?php
-        $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
         foreach ($days as $day) {
             echo "<h3>$day</h3>";
             for ($period = 1; $period <= 7; $period++) {
