@@ -24,6 +24,7 @@ echo "Welcome, " . $_SESSION['teacher_username'];
             <li><a href="update-student.php">Update Student</a></li>
             <li><a href="update-student-schedule.php">Update Student Schedules</a></li>
             <li><a href="add-results.php">Add Results</a></li>
+            <li><a href="view-announcements.php">View Announcements</a></li>
         </ul>
     </nav>
 </body>
