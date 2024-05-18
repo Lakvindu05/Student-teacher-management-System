@@ -21,9 +21,7 @@ echo "Welcome, " . $_SESSION['teacher_username'];
     <nav>
         <ul>
             <li><a href="teacher-profile.php">Profile</a></li>
-            <li><a href="add-student.php">Add Student</a></li>
             <li><a href="update-student.php">Update Student</a></li>
-            <li><a href="add-student-schedule.php">Add Student Schedules</a></li>
             <li><a href="update-student-schedule.php">Update Student Schedules</a></li>
             <li><a href="add-results.php">Add Results</a></li>
         </ul>

@@ -19,7 +19,9 @@ if (!isset($_SESSION['username'])) {
         <ul>
             <li><a href="admin-profile.php">Profile</a></li>
             <li><a href="add-teachers.php">Add Teachers</a></li>
-            <li><a href="add-schedules.php">Add Schedules</a></li>
+            <li><a href="add-teacher-schedules.php">Add Teacher Schedules</a></li>
+            <li><a href="add-student.php">Add Student</a></li>
+            <li><a href="add-student-schedule.php">Add Student Schedules</a></li>
             <li><a href="create-announcements.php">Create Announcements</a></li>
         </ul>
     </nav>
