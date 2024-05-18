@@ -64,7 +64,7 @@ $conn->close();
         echo "<p style='color: red;'>$message</p>";
     }
     ?>
-    <form action="add-teacher.php" method="post" style="display: flex; flex-direction: column; width: 60%; margin: auto;">
+    <form action="add-teachers.php" method="post" style="display: flex; flex-direction: column; width: 60%; margin: auto;">
         <label for="fullname">Full Name:</label>
         <input type="text" id="fullname" name="fullname" required><br><br>
         <label for="username">Username:</label>

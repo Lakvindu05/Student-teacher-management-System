@@ -45,6 +45,6 @@ $conn->close();
         <p><strong>Qualifications:</strong> <?php echo htmlspecialchars($teacher['qualifications']); ?></p>
     </div>
     <br>
-    <a href="teacher-panel.html">Back to Teacher Panel</a>
+    <a href="teacher-panel.php">Back to Teacher Panel</a>
 </body>
 </html>

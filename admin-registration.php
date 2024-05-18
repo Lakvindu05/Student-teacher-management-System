@@ -32,6 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO Admin (username, password) VALUES ('$username', '$hashed_password')";
         if ($conn->query($sql) === TRUE) {
             $message = "Registration successful!";
+            $_SESSION['username'] = $username;
+            header('Location: admin-panel.php');
         } else {
             $message = "Error: " . $sql . "<br>" . $conn->error;
         }

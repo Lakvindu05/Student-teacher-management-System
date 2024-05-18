@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" id="password" name="password" required><br><br>
         <input type="submit" value="Login">
         <br>
-        <a href="admin-registration.html" style="text-align: center;">Not Registered? Register here!</a>
+        <a href="admin-registration.php" style="text-align: center;">Not Registered? Register here!</a>
     </form>
 </body>
 </html>

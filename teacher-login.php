@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row['password'])) {
             $_SESSION['teacher_username'] = $username;
             // Redirect to teacher dashboard (or any other page)
-            header('Location: teacher-dashboard.php');
+            header('Location: teacher-panel.php');
             exit();
         } else {
             // Invalid password
