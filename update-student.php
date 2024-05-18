@@ -153,6 +153,6 @@ $conn->close();
         </form>
     <?php endif; ?>
     <br>
-    <a href="teacher-panel.html">Back to Teacher Panel</a>
+    <a href="teacher-panel.php">Back to Teacher Panel</a>
 </body>
 </html>
