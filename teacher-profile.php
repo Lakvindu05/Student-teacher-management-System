@@ -8,11 +8,6 @@ if (!isset($_SESSION['teacher_username'])) {
     exit();
 }
 
-// Enable error reporting
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 // Fetch teacher's profile information
 $teacher_username = $_SESSION['teacher_username'];
 $sql = "SELECT fullname, username, email, phone_number, address, qualifications FROM Teachers WHERE username = '$teacher_username'";
@@ -33,18 +28,52 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .profile-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .profile-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .profile-container p {
+            margin: 10px 0;
+            color: #555;
+        }
+        .profile-container p strong {
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <h2>Teacher Profile</h2>
-    <div style="width: 80%; margin: auto;">
-        <p><strong>Full Name:</strong> <?php echo htmlspecialchars($teacher['fullname']); ?></p>
-        <p><strong>Username:</strong> <?php echo htmlspecialchars($teacher['username']); ?></p>
-        <p><strong>Email:</strong> <?php echo htmlspecialchars($teacher['email']); ?></p>
-        <p><strong>Phone Number:</strong> <?php echo htmlspecialchars($teacher['phone_number']); ?></p>
-        <p><strong>Address:</strong> <?php echo htmlspecialchars($teacher['address']); ?></p>
-        <p><strong>Qualifications:</strong> <?php echo htmlspecialchars($teacher['qualifications']); ?></p>
+    <?php include 'teacher-panel.php'?>
+    <div class="content">
+        <div class="profile-container">
+            <h2>Teacher Profile</h2>
+            <p><strong>Full Name:</strong> <?php echo htmlspecialchars($teacher['fullname']); ?></p>
+            <p><strong>Username:</strong> <?php echo htmlspecialchars($teacher['username']); ?></p>
+            <p><strong>Email:</strong> <?php echo htmlspecialchars($teacher['email']); ?></p>
+            <p><strong>Phone Number:</strong> <?php echo htmlspecialchars($teacher['phone_number']); ?></p>
+            <p><strong>Address:</strong> <?php echo htmlspecialchars($teacher['address']); ?></p>
+            <p><strong>Qualifications:</strong> <?php echo htmlspecialchars($teacher['qualifications']); ?></p>
+        </div>
     </div>
-    <br>
-    <a href="teacher-panel.php">Back to Teacher Panel</a>
 </body>
 </html>
