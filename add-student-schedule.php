@@ -57,7 +57,7 @@ $students_result = $conn->query($students_sql);
             echo "<h3>$day</h3>";
             for ($period = 1; $period <= 7; $period++) {
                 echo "<label for='{$day}_period_{$period}'>Period $period:</label>";
-                echo "<input type='text' id='{$day}_period_{$period}' name='{$day}_period_{$period}' required><br><br>";
+                echo "<input type='text' id='{$day}_period_{$period}' name='{$day}_period_{$period}'><br><br>";
             }
         }
         ?>
