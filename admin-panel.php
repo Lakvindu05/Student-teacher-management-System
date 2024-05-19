@@ -33,7 +33,8 @@ if (!isset($_SESSION['username'])) {
         .sidebar ul li {
             margin-bottom: 10px;
         }
-        .sidebar ul li a {
+        .sidebar ul li a,
+        .sidebar h1 {
             display: block;
             padding: 10px;
             color: white;

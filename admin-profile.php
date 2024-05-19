@@ -26,10 +26,6 @@ $admin = $result->fetch_assoc();
             margin: 0;
             padding: 0;
         }
-        .content {
-            margin-left: 250px;
-            padding: 20px;
-        }
         .profile {
             max-width: 600px;
             margin: auto;
