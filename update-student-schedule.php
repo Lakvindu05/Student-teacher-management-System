@@ -51,43 +51,98 @@ if (isset($_GET['student_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Student Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        h3 {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <h2>Update Student Schedule</h2>
-    <form method="get" action="update-student-schedule.php" style="display: flex; flex-direction: column; width: 80%; margin: auto;">
-        <label for="student_id">Select Student:</label>
-        <select id="student_id" name="student_id" onchange="this.form.submit()" required>
-            <option value="">-- Select a Student --</option>
-            <?php
-            if ($students_result->num_rows > 0) {
-                while($student = $students_result->fetch_assoc()) {
-                    $selected = isset($student_id) && $student['id'] == $student_id ? 'selected' : '';
-                    echo "<option value='".$student['id']."' $selected>".$student['name']."</option>";
+    <?php include 'teacher-panel.php' ?>
+    <div class="content">
+        <h2>Update Student Schedule</h2>
+        <form method="get" action="update-student-schedule.php" style="display: flex; flex-direction: column; width: 80%; margin: auto;">
+            <label for="student_id">Select Student:</label>
+            <select id="student_id" name="student_id" onchange="this.form.submit()" required>
+                <option value="">-- Select a Student --</option>
+                <?php
+                if ($students_result->num_rows > 0) {
+                    while($student = $students_result->fetch_assoc()) {
+                        $selected = isset($student_id) && $student['id'] == $student_id ? 'selected' : '';
+                        echo "<option value='".$student['id']."' $selected>".$student['name']."</option>";
+                    }
+                } else {
+                    echo "<option value=''>No students available</option>";
                 }
-            } else {
-                echo "<option value=''>No students available</option>";
+                ?>
+            </select><br><br>
+        </form>
+    
+        <?php if (isset($student_id)): ?>
+        <form action="update-student-schedule.php" method="post" style="display: flex; flex-direction: column; width: 80%; margin: auto;">
+            <input type="hidden" name="student_id" value="<?php echo htmlspecialchars($student_id); ?>">
+            <?php
+            $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+            foreach ($days as $day) {
+                echo "<h3>$day</h3>";
+                for ($period = 1; $period <= 7; $period++) {
+                    $subject_value = isset($student_schedule[$day][$period]) ? htmlspecialchars($student_schedule[$day][$period]) : '';
+                    echo "<label for='{$day}_period_{$period}'>Period $period:</label>";
+                    echo "<input type='text' id='{$day}_period_{$period}' name='{$day}_period_{$period}' value='$subject_value' required><br><br>";
+                }
             }
             ?>
-        </select><br><br>
-    </form>
-
-    <?php if (isset($student_id)): ?>
-    <form action="update-student-schedule.php" method="post" style="display: flex; flex-direction: column; width: 80%; margin: auto;">
-        <input type="hidden" name="student_id" value="<?php echo htmlspecialchars($student_id); ?>">
-        <?php
-        $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-        foreach ($days as $day) {
-            echo "<h3>$day</h3>";
-            for ($period = 1; $period <= 7; $period++) {
-                $subject_value = isset($student_schedule[$day][$period]) ? htmlspecialchars($student_schedule[$day][$period]) : '';
-                echo "<label for='{$day}_period_{$period}'>Period $period:</label>";
-                echo "<input type='text' id='{$day}_period_{$period}' name='{$day}_period_{$period}' value='$subject_value' required><br><br>";
-            }
-        }
-        ?>
-        <input type="submit" value="Update Schedule">
-    </form>
-    <?php endif; ?>
+            <input type="submit" value="Update Schedule">
+        </form>
+        <?php endif; ?>
+    </div>
 </body>
 </html>
 
