@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO Announcements (title, content) VALUES ('$title', '$content')";
     if ($conn->query($sql) === TRUE) {
         echo "Announcement created successfully!";
+        header('Location: admin-panel.php');
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

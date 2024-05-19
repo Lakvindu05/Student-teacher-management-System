@@ -39,6 +39,7 @@
     <div class="login-buttons">
         <a href="admin-login.php">Admin Login</a>
         <a href="teacher-login.php">Teacher Login</a>
+        <a href="student-login.php">Student Login</a>
     </div>
 </body>
 </html>
