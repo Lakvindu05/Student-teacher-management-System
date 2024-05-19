@@ -35,7 +35,7 @@ $conn->close();
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             height: 100vh;
             color: #333;
