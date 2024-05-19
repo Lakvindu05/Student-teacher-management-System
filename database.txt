@@ -34,15 +34,14 @@ CREATE TABLE Students (
     password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE Schedules (
+CREATE TABLE TeacherSchedules (
     id INT AUTO_INCREMENT PRIMARY KEY,
     teacher_id INT,
-    student_id INT,
-    subject VARCHAR(100) NOT NULL,
     day VARCHAR(50) NOT NULL,
-    time VARCHAR(50) NOT NULL,
-    FOREIGN KEY (teacher_id) REFERENCES Teachers(id),
-    FOREIGN KEY (student_id) REFERENCES Students(id)
+    period INT NOT NULL,
+    subject VARCHAR(100) NOT NULL,
+    class VARCHAR(50) NOT NULL,
+    FOREIGN KEY (teacher_id) REFERENCES Teachers(id)
 );
 
 CREATE TABLE Announcements (
