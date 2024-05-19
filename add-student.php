@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO Students (name, username, class, admission_number, class_teacher, sports, extra_curricular, address, mobile_phone, email, password) VALUES ('$name', '$username', '$class', '$admission_number', '$class_teacher', '$sports', '$extra_curricular', '$address', '$mobile_phone', '$email', '$hashed_password')";
         if ($conn->query($sql) === TRUE) {
             $message = "Student added successfully!";
-            header('Location: teacher-panel.php');
+            header('Location: admin-panel.php');
         } else {
             $message = "Error: " . $sql . "<br>" . $conn->error;
         }
