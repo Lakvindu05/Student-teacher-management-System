@@ -57,7 +57,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Schedule</title>
     <style>
-        .container {
+        .content {
             width: 80%;
             margin: auto;
             text-align: center;
@@ -78,7 +78,8 @@ $conn->close();
     </style>
 </head>
 <body>
-    <div class="container">
+    <?php include 'student-panel.php'?>
+    <div class="content">
         <h1>Your Schedule</h1>
         <table>
             <thead>
